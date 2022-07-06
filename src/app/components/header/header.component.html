@@ -1,0 +1,22 @@
+<header *ngIf="isMainHeader;else minimalHeader" [ngClass]="isDark ? 'header-dark' : 'header-light'"
+        class="mb-2 header mat-elevation-z8"
+        data-cy="header__main">
+  <div class="header__child">
+    <div (click)="changeTheme()" class="p-1" data-cy="header__icon-container">
+      <mat-icon class="white" data-cy="header__icon">{{isDark ? 'timelapse' : 'wb_sunny'}}</mat-icon>
+    </div>
+    <div class="p-1">
+      <mat-slide-toggle (change)="toggleChanged($event.checked)" aria-label="show avatar image" class="white"
+                        data-cy="header__toggle">show avatar image
+      </mat-slide-toggle>
+    </div>
+  </div>
+</header>
+
+<ng-template #minimalHeader>
+  <header class="center pb-3" data-cy="header__main">
+    <div (click)="changeTheme()" data-cy="header__icon-container">
+      <mat-icon data-cy="header__icon">{{isDark ? 'timelapse' : 'wb_sunny'}}</mat-icon>
+    </div>
+  </header>
+</ng-template>

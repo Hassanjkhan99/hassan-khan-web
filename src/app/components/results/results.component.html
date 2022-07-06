@@ -1,0 +1,63 @@
+<div class="w-99 m-1  mat-elevation-z8" data-cy="results__main">
+
+  <mat-table (matSortChange)="sortData($event)" [dataSource]="dataSource" data-cy="results__table" matSort
+             matSortActive="login"
+             matSortDirection="asc" matSortDisableClear>
+
+    <!-- avatar_img Column -->
+    <!--    unable to adjust width of cell via class need to debug-->
+    <ng-container *ngIf="dataService.isShowAvatarImage" data-cy="results__column-avatar" matColumnDef="avatar">
+      <mat-header-cell *matHeaderCellDef>
+        avatar
+      </mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <img alt="avatar_img" class="w-4" src="{{row.avatar_url}}">
+      </mat-cell>
+    </ng-container>
+
+
+    <!-- avatar_url Column -->
+    <ng-container data-cy="results__column-avatar-url" matColumnDef="avatar_url">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> avatar_url</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.avatar_url}} </mat-cell>
+    </ng-container>
+
+    <!-- login Column -->
+    <ng-container data-cy="results__column-login" matColumnDef="login">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> login</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.login}}%</mat-cell>
+    </ng-container>
+
+    <!-- type Column -->
+    <ng-container data-cy="results__column-type" matColumnDef="type">
+      <mat-header-cell *matHeaderCellDef mat-sort-header> type</mat-header-cell>
+      <mat-cell *matCellDef="let row"> {{row.type}} </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;">
+    </mat-row>
+  </mat-table>
+
+  <div *ngIf="dataService.isLoadingResults || dataService.isRateLimitReached || dataService.noRecords"
+       class="loading-shade"
+       data-cy="results__loading-shade">
+    <mat-spinner *ngIf="dataService.isLoadingResults && !dataService.noRecords && !dataService.isRateLimitReached"
+                 data-cy="results__spinner"></mat-spinner>
+    <div *ngIf="dataService.isRateLimitReached && !dataService.isLoadingResults && !dataService.noRecords"
+         class="limit-reached"
+         data-cy="results__limit">
+      GitHub's API rate limit has been reached. It will be reset in one minute.
+    </div>
+    <div *ngIf="dataService.noRecords && !dataService.isRateLimitReached && !dataService.isLoadingResults"
+         class="no-record"
+         data-cy="results__no-record">
+      No records Available
+    </div>
+  </div>
+
+  <mat-paginator
+    (page)="pageChange($event)" [length]="totalRecords" [pageSize]="pageSize"
+    data-cy="results__paginator"></mat-paginator>
+</div>
+

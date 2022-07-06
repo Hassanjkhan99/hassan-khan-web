@@ -21,12 +21,37 @@
     "lib": [
       "es2020",
       "dom"
-    ]
+    ],
+    "paths": {
+      "@service/*": [
+        "src/app/core/services"
+      ],
+      "@interfaces/*": [
+        "src/app/core/interfaces"
+      ],
+      "@enums/*": [
+        "src/app/core/enums"
+      ],
+      "@interceptors/*": [
+        "src/app/core/interceptors"
+      ],
+      "@helpers/*": [
+        "src/app/core/helpers"
+      ],
+      "@components/*": [
+        "src/app/components"
+      ]
+    }
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
+  },
+  "test": {
+    "options": {
+      "codeCoverage": true
+    }
   }
 }
