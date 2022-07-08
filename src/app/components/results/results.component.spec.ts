@@ -3,9 +3,8 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ResultsComponent} from '@components/*';
 import {AppModule} from "../../app.module";
 import {dataCySelector} from "@helpers/*";
-import {Page} from "@enums/*";
+import {Page, Sort} from "@enums/*";
 import {PageEvent} from "@angular/material/paginator";
-import {Sort} from "@angular/material/sort";
 
 const selectors = {
   main: dataCySelector('results__main'),
@@ -250,8 +249,9 @@ describe('ResultsComponent', () => {
     });
     it('should have method sortData which calls this.dataService.search', () => {
       const spy = spyOn(component.dataService, 'search')
-      component.sortData({active: 'asc'} as Sort)
-      expect(spy).toHaveBeenCalledWith(component.dataService.currentSearch, component.dataService.currentPage, 'asc')
+      component.sortData(Sort.login)
+      // @ts-ignore
+      expect(spy).toHaveBeenCalledWith(component.dataService.currentSearch, component.dataService.currentPage, Sort.login)
     });
   })
 

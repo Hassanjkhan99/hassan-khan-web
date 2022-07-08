@@ -1,6 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {AfterViewChecked, Component, Input, OnInit} from '@angular/core';
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {DataService, ThemeService} from "@service/*";
+import {Router} from "@angular/router";
 
 
 @UntilDestroy()
@@ -9,16 +10,16 @@ import {DataService, ThemeService} from "@service/*";
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent implements OnInit, AfterViewChecked {
   isDark: boolean = false;
   @Input() isMainHeader: boolean = true;
+  isHome: boolean = false;
 
-
-  constructor(private _dataService: DataService, private _themeService: ThemeService) {
+  constructor(private _dataService: DataService, private _themeService: ThemeService, public router: Router) {
   }
 
   ngOnInit(): void {
-    this._themeService.isThemeDark.pipe(untilDestroyed(this)).subscribe(value => {
+    this._themeService.isThemeDark$.pipe(untilDestroyed(this)).subscribe(value => {
       this.isDark = value;
     })
   }
@@ -28,7 +29,16 @@ export class HeaderComponent implements OnInit {
   }
 
   changeTheme() {
-    this._themeService.isThemeDark.next(!this._themeService.isThemeDark.value)
+    this._themeService.isThemeDark$.next(!this._themeService.isThemeDark$.value)
+  }
+
+
+  ngAfterViewChecked(): void {
+    this.router.events.subscribe((e) => {
+      this.isHome = this.router.url !== '/'
+    })
+
+
   }
 }
 

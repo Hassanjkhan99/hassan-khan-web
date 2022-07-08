@@ -14,8 +14,6 @@ export class DialogueService {
 
   open() {
     this._dialogueRef = this._dialog.open(SearchWithToggleComponent, {
-      width: '25vw',
-      height: '25vw',
       disableClose: true
     })
     this.isOpen = true
@@ -27,4 +25,6 @@ export class DialogueService {
       this.isOpen = false
     }
   }
+
+
 }

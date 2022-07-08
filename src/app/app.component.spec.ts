@@ -113,7 +113,7 @@ describe('AppComponent', () => {
       const spy = spyOn(component, 'changeTheme')
 
       component.ngOnInit()
-      component.themeService.isThemeDark.next(true)
+      component.themeService.isThemeDark$.next(true)
       fixture.detectChanges();
 
       expect(spy).toHaveBeenCalledWith(true);

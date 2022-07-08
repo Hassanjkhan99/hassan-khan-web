@@ -16,6 +16,7 @@ export class AppComponent {
   @HostBinding('class') className = '';
   darkClassName = 'darkMode';
 
+
   constructor(public dialogueService: DialogueService, private _overlay: OverlayContainer, public themeService: ThemeService) {
   }
 
@@ -30,7 +31,7 @@ export class AppComponent {
   }
 
   ngOnInit(): void {
-    this.themeService.isThemeDark.pipe(untilDestroyed(this)).subscribe(value => {
+    this.themeService.isThemeDark$.pipe(untilDestroyed(this)).subscribe(value => {
       this.changeTheme(value)
     })
   }
@@ -44,4 +45,5 @@ export class AppComponent {
       this._overlay.getContainerElement().classList.remove(this.darkClassName);
     }
   }
+
 }

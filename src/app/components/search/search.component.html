@@ -2,13 +2,13 @@
   <div class="center__column" data-cy="search__container-child">
     <mat-form-field appearance="outline" data-cy="search__field">
       <mat-label data-cy="search__label">Enter any text</mat-label>
-      <input [(ngModel)]="searchValue" data-cy="search__input" matInput placeholder="foo" required
+      <input [(ngModel)]="dataService.currentSearch" data-cy="search__input" matInput placeholder="foo" required
       >
-      <mat-error *ngIf="searchValue === ''" data-cy="search__error">Please enter something to search
+      <mat-error *ngIf="dataService.currentSearch === ''" data-cy="search__error">Please enter something to search
       </mat-error>
     </mat-form-field>
     <div>
-      <button (click)="search()" [disabled]="searchValue === ''" class="w-100" color="primary"
+      <button (click)="search()" [disabled]="dataService.currentSearch === ''" class="w-100" color="primary"
               data-cy="search__button" mat-raised-button>
         Search
       </button>
