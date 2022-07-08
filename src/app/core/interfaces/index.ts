@@ -1,2 +1,3 @@
-export * from './data.interface';
+export * from './successResponse';
+export * from './error-response';
 

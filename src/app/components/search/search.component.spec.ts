@@ -98,7 +98,7 @@ describe('SearchComponent', () => {
       component.searchValue = 'foo'
       fixture.detectChanges();
       //@ts-expect-error
-      const spy = spyOn(component._dataService, 'search')
+      const spy = spyOn(component.dataService, 'search')
       component.search()
       expect(spy).toHaveBeenCalledWith(component.searchValue);
       expect(spy).toHaveBeenCalledWith('foo');

@@ -51,6 +51,9 @@ $hassan-khan-web-theme-dark: mat.define-dark-theme(
   color: white;
 }
 
+@import "../src/app/core/vaiables/breakpoints";
+@import "../src/app/core/mixins/media-queries";
+
 /* You can add global styles to this file, and also import other style files */
 
 html, body {
@@ -138,7 +141,9 @@ body {
   .p-#{$i} {
     padding: #{$i}rem;
   }
-
+  .w-#{$i} {
+    width: #{$i}vw;
+  }
 }
 
 .white {
@@ -180,6 +185,8 @@ table {
 mat-header-cell, mat-cell {
   justify-content: center;
 }
+
+
 
 
 

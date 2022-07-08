@@ -1,9 +1,7 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-
 import {AppComponent} from './app.component';
-import {SearchComponent} from './components/search/search.component';
-import {ResultsComponent} from './components/results/results.component';
+import {ResultsComponent, SearchComponent} from '@components/*';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatInputModule} from "@angular/material/input";
 import {FormsModule} from "@angular/forms";
@@ -22,7 +20,7 @@ import {SearchWithToggleComponent} from '@components/search-with-toggle';
 import {Route, RouterModule} from "@angular/router";
 import {PageNotFoundComponent} from '@components/page-not-found';
 import {MainComponent} from '@components/main';
-import {ErrorInterceptor} from "@interceptors/interceptor";
+import {ErrorInterceptor} from "@interceptors/*";
 
 const routes: Route[] = [{component: MainComponent, path: '',}, {path: '**', component: PageNotFoundComponent}]
 

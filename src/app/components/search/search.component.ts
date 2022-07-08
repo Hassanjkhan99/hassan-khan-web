@@ -10,15 +10,13 @@ import {DataService, DialogueService} from "@service/*";
 })
 export class SearchComponent {
 
-  searchValue: string = '';
 
-
-  constructor(private _dataService: DataService, private _dialogueService: DialogueService) {
+  constructor(public dataService: DataService, private _dialogueService: DialogueService) {
   }
 
 
   search() {
-    this._dataService.search(this.searchValue);
+    this.dataService.search();
     this._dialogueService.close()
   }
 }

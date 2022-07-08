@@ -19,7 +19,7 @@ export class SearchWithToggleComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._themeService.isThemeDark.pipe(untilDestroyed(this)).subscribe(value => {
+    this._themeService.isThemeDark$.pipe(untilDestroyed(this)).subscribe(value => {
       this.isDark = value;
     })
 
@@ -30,7 +30,7 @@ export class SearchWithToggleComponent implements OnInit {
   }
 
   changeTheme() {
-    this._themeService.isThemeDark.next(!this._themeService.isThemeDark.value)
+    this._themeService.isThemeDark$.next(!this._themeService.isThemeDark$.value)
   }
 
 }

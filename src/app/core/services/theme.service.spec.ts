@@ -17,6 +17,6 @@ describe('ThemeService', () => {
     expect(service).toBeTruthy();
   });
   it('should have Behaviour Subject isThemeDark with initial value false', () => {
-    expect(service.isThemeDark.value).toBeFalsy();
+    expect(service.isThemeDark$.value).toBeFalsy();
   });
 });

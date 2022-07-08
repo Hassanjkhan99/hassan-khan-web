@@ -1,11 +1,11 @@
 import {AfterViewInit, Component, ViewChild} from '@angular/core';
 import {MatTableDataSource} from "@angular/material/table";
 import {MatPaginator, PageEvent} from "@angular/material/paginator";
-import {MatSort, Sort} from "@angular/material/sort";
+import {MatSort} from "@angular/material/sort";
 import {DataService} from "@service/data.service";
 import {UntilDestroy, untilDestroyed} from "@ngneat/until-destroy";
 import {DataItem} from "@interfaces/*";
-import {Page} from "@enums/*"
+import {Order, Page, Sort} from "@enums/*"
 
 @UntilDestroy()
 @Component({
@@ -34,7 +34,7 @@ export class ResultsComponent implements AfterViewInit {
       }
     })
     // Get items from service via the items' property which is a subject
-    this.dataService.items.pipe(untilDestroyed(this)).subscribe(items => {
+    this.dataService.items$.pipe(untilDestroyed(this)).subscribe(items => {
       // Assign the items to the items source for the table to render
       this.dataSource = new MatTableDataSource(items);
       this.totalRecords = this.dataService.totalCount
@@ -61,8 +61,8 @@ export class ResultsComponent implements AfterViewInit {
     this.dataService.search(this.dataService.currentSearch, page.pageIndex)
   }
 
-  sortData($event: Sort) {
-    this.dataService.search(this.dataService.currentSearch, this.dataService.currentPage, $event.active)
+  sortData($event: { active: string, direction: string }) {
+    this.dataService.search(this.dataService.currentSearch, this.dataService.currentPage, $event.active as Sort, $event.direction as Order)
   }
 }
 

@@ -20,7 +20,7 @@ export interface DataItem {
   score: number;
 }
 
-export interface DataInterface {
+export interface SuccessResponse {
   total_count: number;
   incomplete_results: boolean;
   items: DataItem[];

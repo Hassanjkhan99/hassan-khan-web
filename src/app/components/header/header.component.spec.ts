@@ -126,11 +126,11 @@ describe('HeaderComponent', () => {
       component.ngOnInit()
       fixture.detectChanges();
       // @ts-expect-error
-      component._themeService.isThemeDark.next(true)
+      component._themeService.isThemeDark$.next(true)
       expect(component.isDark).toBeTruthy()
 
       // @ts-expect-error
-      component._themeService.isThemeDark.next(false)
+      component._themeService.isThemeDark$.next(false)
       expect(component.isDark).toBeFalsy()
     });
 
@@ -146,16 +146,16 @@ describe('HeaderComponent', () => {
 
     it('changeTheme() should set value in themeService.isThemeDark', () => {
       // @ts-expect-error
-      let currentValue = component._themeService.isThemeDark.value
+      let currentValue = component._themeService.isThemeDark$.value
       component.changeTheme()
       // @ts-expect-error
-      expect(component._themeService.isThemeDark.value).toEqual(!currentValue);
+      expect(component._themeService.isThemeDark$.value).toEqual(!currentValue);
 
       // @ts-expect-error
-      currentValue = component._themeService.isThemeDark.value
+      currentValue = component._themeService.isThemeDark$.value
       component.changeTheme()
       // @ts-expect-error
-      expect(component._themeService.isThemeDark.value).toEqual(!currentValue);
+      expect(component._themeService.isThemeDark$.value).toEqual(!currentValue);
     });
 
   })
