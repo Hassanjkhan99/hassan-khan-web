@@ -232,12 +232,6 @@ describe('DataService', () => {
     expect(service.currentPage).toEqual(params.page);
   });
 
-  it('should have search() which assigns currentSearch = value', () => {
-    service.currentSearch = '';
-    spyOn(service, 'getLogin').and.returnValue(of(dummyData))
-    service.search(value, params.page, params.sort, params.order);
-    expect(service.currentSearch).toEqual(value);
-  });
 
   it('should have search() which this.isLoadingResults = false after Api call', () => {
     service.currentSearch = '';

@@ -13,14 +13,20 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit, AfterViewChecked {
   isDark: boolean = false;
   @Input() isMainHeader: boolean = true;
-  isHome: boolean = false;
+  isNotHome: boolean = false;
 
-  constructor(private _dataService: DataService, private _themeService: ThemeService, public router: Router) {
+  constructor(public _dataService: DataService, public _themeService: ThemeService, public router: Router) {
   }
 
   ngOnInit(): void {
     this._themeService.isThemeDark$.pipe(untilDestroyed(this)).subscribe(value => {
       this.isDark = value;
+    })
+  }
+
+  ngAfterViewChecked(): void {
+    this.router.events.subscribe((e) => {
+      this.isNotHome = this.router.url !== '/'
     })
   }
 
@@ -33,13 +39,6 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   }
 
 
-  ngAfterViewChecked(): void {
-    this.router.events.subscribe((e) => {
-      this.isHome = this.router.url !== '/'
-    })
-
-
-  }
 }
 
 

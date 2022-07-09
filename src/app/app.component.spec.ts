@@ -30,6 +30,8 @@ describe('AppComponent', () => {
     const app = fixture.componentInstance;
     expect(app).toBeTruthy();
   });
+
+
   describe('Template', () => {
 
 
@@ -63,6 +65,10 @@ describe('AppComponent', () => {
 
   })
   describe('Component', () => {
+
+    it('should have title = hassan-khan-web', () => {
+      expect(component.title).toEqual('hassan-khan-web');
+    });
 
     it('className start value should be ""', () => {
 

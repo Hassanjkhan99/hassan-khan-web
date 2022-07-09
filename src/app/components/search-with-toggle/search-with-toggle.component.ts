@@ -14,7 +14,7 @@ export class SearchWithToggleComponent implements OnInit {
   isDark: boolean = false;
 
 
-  constructor(private _dataService: DataService, private _themeService: ThemeService) {
+  constructor(public _dataService: DataService, public _themeService: ThemeService) {
 
   }
 

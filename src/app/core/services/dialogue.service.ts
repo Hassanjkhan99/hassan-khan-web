@@ -7,9 +7,9 @@ import {SearchWithToggleComponent} from "@components/*";
 })
 export class DialogueService {
   isOpen: boolean = false
-  private _dialogueRef!: MatDialogRef<SearchWithToggleComponent>;
+  public _dialogueRef!: MatDialogRef<SearchWithToggleComponent>;
 
-  constructor(private _dialog: MatDialog) {
+  constructor(public _dialog: MatDialog) {
   }
 
   open() {
