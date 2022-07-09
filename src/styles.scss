@@ -144,6 +144,9 @@ body {
   .w-#{$i} {
     width: #{$i}vw;
   }
+  .h-#{$i} {
+    height: #{$i}vh;
+  }
 }
 
 .white {
