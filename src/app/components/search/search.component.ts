@@ -11,12 +11,12 @@ import {DataService, DialogueService} from "@service/*";
 export class SearchComponent {
 
 
-  constructor(public dataService: DataService, private _dialogueService: DialogueService) {
+  constructor(public dataService: DataService, public dialogueService: DialogueService) {
   }
 
 
   search() {
     this.dataService.search();
-    this._dialogueService.close()
+    this.dialogueService.close()
   }
 }

@@ -3,7 +3,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {ResultsComponent} from '@components/*';
 import {AppModule} from "../../app.module";
 import {dataCySelector} from "@helpers/*";
-import {Page, Sort} from "@enums/*";
+import {Order, Page, Sort} from "@enums/*";
 import {PageEvent} from "@angular/material/paginator";
 
 const selectors = {
@@ -76,8 +76,7 @@ describe('ResultsComponent', () => {
       component.dataService.isShowAvatarImage.next(true)
       fixture.detectChanges()
       const tableChildren = compiled.querySelector(selectors.main)?.querySelector(selectors.table)?.childNodes
-      // @ts-ignore
-      expect(tableChildren.length).toEqual(5);
+      expect(tableChildren?.length).toEqual(5);
     });
 
     it('should have a loading shade which only appears when dataService.isLoadingResults is truthy or dataService.isRateLimitReached is truthy or dataService.noRecords is truthy', () => {
@@ -249,9 +248,8 @@ describe('ResultsComponent', () => {
     });
     it('should have method sortData which calls this.dataService.search', () => {
       const spy = spyOn(component.dataService, 'search')
-      component.sortData(Sort.login)
-      // @ts-ignore
-      expect(spy).toHaveBeenCalledWith(component.dataService.currentSearch, component.dataService.currentPage, Sort.login)
+      component.sortData({active: Sort.login, direction: Order.asc})
+      expect(spy).toHaveBeenCalledWith(component.dataService.currentSearch, component.dataService.currentPage, Sort.login, Order.asc)
     });
   })
 

@@ -63,31 +63,24 @@ describe('SearchWithToggleComponent', () => {
     });
     it('should set isDark value according to themeService after ngOninit', () => {
       component.ngOnInit();
-      //@ts-expect-error
-      component._themeService.isThemeDark$.next(true);
+      component.themeService.isThemeDark$.next(true);
       expect(component.isDark).toBeTruthy();
-      //@ts-expect-error
-      component._themeService.isThemeDark$.next(false);
+      component.themeService.isThemeDark$.next(false);
       expect(component.isDark).toBeFalsy();
     });
-    it('should have toggleChanged which changes value in _dataService.isShowAvatarImage', () => {
+    it('should have toggleChanged which changes value in dataService.isShowAvatarImage', () => {
       component.toggleChanged({checked: true} as MatSlideToggleChange);
-      //@ts-expect-error
-      expect(component._dataService.isShowAvatarImage.value).toBeTruthy();
+      expect(component.dataService.isShowAvatarImage.value).toBeTruthy();
       component.toggleChanged({checked: false} as MatSlideToggleChange);
-      //@ts-expect-error
-      expect(component._dataService.isShowAvatarImage.value).toBeFalsy();
+      expect(component.dataService.isShowAvatarImage.value).toBeFalsy();
     });
-    it('should have changeTheme() which inverts value in _themeService.isThemeDark', () => {
+    it('should have changeTheme() which inverts value in themeService.isThemeDark', () => {
       debugger;
-      //@ts-expect-error
-      component._themeService.isThemeDark$.next(true)
-      //@ts-expect-error
-      const currentValue = component._themeService.isThemeDark$.value
+      component.themeService.isThemeDark$.next(true)
+      const currentValue = component.themeService.isThemeDark$.value
       component.changeTheme();
       fixture.detectChanges()
-      //@ts-expect-error
-      expect(component._dataService.isShowAvatarImage.value).toEqual(!currentValue);
+      expect(component.dataService.isShowAvatarImage.value).toEqual(!currentValue);
     });
   })
 });

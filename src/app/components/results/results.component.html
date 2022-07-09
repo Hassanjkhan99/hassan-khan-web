@@ -1,6 +1,7 @@
-<div class="w-99 m-1  mat-elevation-z8" data-cy="results__main">
+<div class=" m-1 min-width-1000 mat-elevation-z8" data-cy="results__main">
 
-  <mat-table (matSortChange)="sortData($event)" [dataSource]="dataSource" data-cy="results__table" matSort
+  <mat-table (matSortChange)="sortData($event)" [dataSource]="dataSource" data-cy="results__table" fixedLayout="false"
+             matSort
              matSortActive="login"
              matSortDirection="asc" matSortDisableClear>
 
@@ -11,7 +12,7 @@
         avatar
       </mat-header-cell>
       <mat-cell *matCellDef="let row">
-        <img alt="avatar_img" class="w-4" src="{{row.avatar_url}}">
+        <img alt="avatar_img" class="img" src="{{row.avatar_url}}">
       </mat-cell>
     </ng-container>
 

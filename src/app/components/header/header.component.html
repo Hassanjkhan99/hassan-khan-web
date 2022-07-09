@@ -6,7 +6,7 @@
       <mat-icon class="white" data-cy="header__icon">{{isDark ? 'timelapse' : 'wb_sunny'}}</mat-icon>
     </div>
     <div class="p-1">
-      <mat-slide-toggle (change)="toggleChanged($event.checked)" [ngClass]="isHome ? 'notVisible' : ''"
+      <mat-slide-toggle (change)="toggleChanged($event.checked)" [ngClass]="isNotHome ? 'notVisible' : ''"
                         aria-label="show avatar image" class="white "
                         data-cy="header__toggle">show avatar image
       </mat-slide-toggle>

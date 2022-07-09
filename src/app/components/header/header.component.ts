@@ -13,9 +13,9 @@ import {Router} from "@angular/router";
 export class HeaderComponent implements OnInit, AfterViewChecked {
   isDark: boolean = false;
   @Input() isMainHeader: boolean = true;
-  isHome: boolean = false;
+  isNotHome: boolean = false;
 
-  constructor(private _dataService: DataService, private _themeService: ThemeService, public router: Router) {
+  constructor(public dataService: DataService, public _themeService: ThemeService, public router: Router) {
   }
 
   ngOnInit(): void {
@@ -24,8 +24,14 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
     })
   }
 
+  ngAfterViewChecked(): void {
+    this.router.events.subscribe(() => {
+      this.isNotHome = this.router.url !== '/'
+    })
+  }
+
   toggleChanged($event: boolean) {
-    this._dataService.isShowAvatarImage.next($event)
+    this.dataService.isShowAvatarImage.next($event)
   }
 
   changeTheme() {
@@ -33,13 +39,6 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   }
 
 
-  ngAfterViewChecked(): void {
-    this.router.events.subscribe((e) => {
-      this.isHome = this.router.url !== '/'
-    })
-
-
-  }
 }
 
 

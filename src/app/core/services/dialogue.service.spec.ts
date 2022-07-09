@@ -21,12 +21,10 @@ describe('DialogueService', () => {
     expect(service.isOpen).toBeFalsy();
   });
   it('should be have open() which triggers ._dialog.open() with params and set this.isOpen = true', () => {
-    //@ts-expect-error
+
     const spy = spyOn(service._dialog, 'open')
     service.open()
     expect(spy).toHaveBeenCalledWith(SearchWithToggleComponent, {
-      width: '25vw',
-      height: '25vw',
       disableClose: true
     });
     expect(service.isOpen).toBeTruthy();
@@ -34,8 +32,8 @@ describe('DialogueService', () => {
 
   it('should be have close() which if isOpen is truthy sets it to false dialogueRef.close() else do nothing', () => {
     service.open();
-    //@ts-expect-error
-    const spy = spyOn(service._dialogueRef, 'close')
+
+    const spy = spyOn(service.dialogueRef, 'close')
     service.close();
     expect(spy).toHaveBeenCalled();
     expect(service.isOpen).toBeFalsy();

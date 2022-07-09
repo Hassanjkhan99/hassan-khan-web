@@ -24,7 +24,7 @@ export class DataService {
   isShowAvatarImage: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
   BASE_URL = 'https://api.github.com/search'
 
-  constructor(private http: HttpClient, private _snackBar: MatSnackBar) {
+  constructor(public http: HttpClient, public snackBar: MatSnackBar) {
   }
 
 
@@ -76,6 +76,6 @@ export class DataService {
 
 
   openSnackBar(message: string, action: string) {
-    this._snackBar.open(message, action)._dismissAfter(2000)
+    this.snackBar.open(message, action)._dismissAfter(2000)
   }
 }

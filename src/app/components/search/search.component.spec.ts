@@ -57,7 +57,6 @@ describe('SearchComponent', () => {
 
     it('should have a mat form field with children label,input', () => {
       const field = compiled.querySelector(selectors.field)
-      console.log(component.searchValue)
       expect(field?.querySelector(selectors.label)).toBeTruthy();
       expect(field?.querySelector(selectors.input)).toBeTruthy();
     });
@@ -91,21 +90,16 @@ describe('SearchComponent', () => {
     it('should create', () => {
       expect(component).toBeTruthy();
     });
-    it('should create component with initial value = ""', () => {
-      expect(component.searchValue.trim()).toEqual('');
-    });
+
     it('should have a search() which calls _dataService.search with search value', () => {
-      component.searchValue = 'foo'
+      component.dataService.currentSearch = 'foo'
       fixture.detectChanges();
-      //@ts-expect-error
       const spy = spyOn(component.dataService, 'search')
       component.search()
-      expect(spy).toHaveBeenCalledWith(component.searchValue);
-      expect(spy).toHaveBeenCalledWith('foo');
+      expect(spy).toHaveBeenCalled()
     });
     it('should have a search() which calls _dialogueService.close() ', () => {
-      //@ts-expect-error
-      const spy = spyOn(component._dialogueService, 'close')
+      const spy = spyOn(component.dialogueService, 'close')
       component.search()
       expect(spy).toHaveBeenCalled();
     });
