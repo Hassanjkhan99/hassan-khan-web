@@ -41,8 +41,11 @@ export class AppComponent {
     this.className = $event ? this.darkClassName : ''
     if (this.className === this.darkClassName) {
       this.overlay.getContainerElement().classList.add(this.darkClassName);
+      document.body.className = 'bg-dark'
     } else {
       this.overlay.getContainerElement().classList.remove(this.darkClassName);
+      document.body.className = ''
+
     }
   }
 

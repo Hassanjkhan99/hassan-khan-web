@@ -135,6 +135,19 @@ describe('AppComponent', () => {
 
       expect(component.overlay.getContainerElement().classList).toContain(component.darkClassName)
     })
+
+    it('should apply bg-dark class on body correctly on themeChange', () => {
+
+      component.ngOnInit();
+      component.changeTheme(true);
+      fixture.detectChanges();
+
+      expect(document.body.className).toEqual('bg-dark');
+      component.changeTheme(false);
+      fixture.detectChanges();
+
+      expect(document.body.className).toEqual('');
+    })
   })
 })
 

@@ -148,7 +148,6 @@ describe('HeaderComponent', () => {
       router.navigateByUrl('/test');
       tick();
       fixture.detectChanges();
-      console.log(router.url)
       expect(component.isNotHome).toBeTruthy()
     }));
 
@@ -157,7 +156,6 @@ describe('HeaderComponent', () => {
       router.navigateByUrl('/');
       tick();
       fixture.detectChanges();
-      console.log(router.url)
       expect(component.isNotHome).toBeFalsy()
     }));
 

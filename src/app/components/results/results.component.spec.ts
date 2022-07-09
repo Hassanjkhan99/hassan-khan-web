@@ -38,10 +38,9 @@ describe('ResultsComponent', () => {
   });
 
   describe('Template', () => {
-    it('should have a main div with classes  "w-99 m-1  mat-elevation-z8"', () => {
+    it('should have a main div with classes  " m-1  mat-elevation-z8"', () => {
       const ele = compiled.querySelector(selectors.main)
       expect(ele).toBeTruthy();
-      expect(ele).toHaveClass('w-99')
       expect(ele).toHaveClass('m-1')
       expect(ele).toHaveClass('mat-elevation-z8')
     });
