@@ -2,16 +2,8 @@ import {fakeAsync, TestBed} from '@angular/core/testing';
 
 import {ErrorInterceptor} from './error.interceptor';
 import {HttpClientTestingModule, HttpTestingController} from "@angular/common/http/testing";
-import {Observable, of} from "rxjs";
 import {ErrorResponse} from "@interfaces/*";
-import {
-  HTTP_INTERCEPTORS,
-  HttpClient,
-  HttpErrorResponse,
-  HttpHandler,
-  HttpRequest,
-  HttpStatusCode
-} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClient, HttpErrorResponse, HttpHandler, HttpStatusCode} from "@angular/common/http";
 import {Action, Order, SnackBarMessagesErrors, Sort} from "@enums/*";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {DataService} from "@service/*";
@@ -22,11 +14,6 @@ const errorResponse: ErrorResponse = {
   documentation_url: "https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting"
 }
 
-class next {
-  static handle(request: HttpRequest<unknown>): Observable<ErrorResponse> {
-    return of(errorResponse);
-  }
-};
 
 const params: { page: number, per_page: number, sort: Sort, order: Order } = {
   page: 1,
@@ -117,7 +104,7 @@ describe('ErrorInterceptor', () => {
   });
 
 
-  it(' should when call openSnackBar() with Forbidden then first dataService.isRateLimitReached = true then after 60sec it is turned false', fakeAsync((done: () => void) => {
+  it(' should when call openSnackBar() with Forbidden then first dataService.isRateLimitReached = true then after 60sec it is turned false', fakeAsync(() => {
     interceptor.dataService.isRateLimitReached = false;
     interceptor.applySwitch({status: HttpStatusCode.Forbidden} as HttpErrorResponse)
     expect(interceptor.dataService.isRateLimitReached).toBeTruthy();
@@ -125,7 +112,7 @@ describe('ErrorInterceptor', () => {
     expect(interceptor.dataService.isRateLimitReached).toBeFalsy();
   }))
 
-  it(' should when call openSnackBar() with Forbidden then first dataService.noRecords = false then after 60sec it is turned true', fakeAsync((done: () => void) => {
+  it(' should when call openSnackBar() with Forbidden then first dataService.noRecords = false then after 60sec it is turned true', fakeAsync(() => {
     interceptor.dataService.noRecords = true;
     interceptor.applySwitch({status: HttpStatusCode.Forbidden} as HttpErrorResponse)
     expect(interceptor.dataService.noRecords).toBeFalsy();

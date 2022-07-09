@@ -7,7 +7,6 @@ import {RouterTestingModule} from "@angular/router/testing";
 import {Route, Router} from "@angular/router";
 import {MatSnackBarModule} from "@angular/material/snack-bar";
 import {MatIconModule} from "@angular/material/icon";
-import {Location} from "@angular/common";
 
 const selectors = {
   header: dataCySelector('header__main'),
@@ -21,7 +20,6 @@ describe('HeaderComponent', () => {
   let component: HeaderComponent;
   let fixture: ComponentFixture<HeaderComponent>;
   let compiled: HTMLElement;
-  let location: Location
   let router: Router
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -33,7 +31,6 @@ describe('HeaderComponent', () => {
 
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    location = TestBed.inject(Location)
     compiled = fixture.nativeElement as HTMLElement;
     router = TestBed.inject(Router)
     router.initialNavigation();

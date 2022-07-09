@@ -23,8 +23,8 @@ export class ErrorInterceptor implements HttpInterceptor {
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
     return next.handle(request).pipe(
-      retryWhen((error) => {
-          return error
+      retryWhen((error$) => {
+          return error$
             .pipe(
               mergeMap((error, index) => {
                 this.errorFn(index, error);

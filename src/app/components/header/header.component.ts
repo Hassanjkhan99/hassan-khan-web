@@ -25,7 +25,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   }
 
   ngAfterViewChecked(): void {
-    this.router.events.subscribe((e) => {
+    this.router.events.subscribe(() => {
       this.isNotHome = this.router.url !== '/'
     })
   }

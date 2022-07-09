@@ -68,13 +68,13 @@ describe('SearchWithToggleComponent', () => {
       component.themeService.isThemeDark$.next(false);
       expect(component.isDark).toBeFalsy();
     });
-    it('should have toggleChanged which changes value in _dataService.isShowAvatarImage', () => {
+    it('should have toggleChanged which changes value in dataService.isShowAvatarImage', () => {
       component.toggleChanged({checked: true} as MatSlideToggleChange);
       expect(component.dataService.isShowAvatarImage.value).toBeTruthy();
       component.toggleChanged({checked: false} as MatSlideToggleChange);
       expect(component.dataService.isShowAvatarImage.value).toBeFalsy();
     });
-    it('should have changeTheme() which inverts value in _themeService.isThemeDark', () => {
+    it('should have changeTheme() which inverts value in themeService.isThemeDark', () => {
       debugger;
       component.themeService.isThemeDark$.next(true)
       const currentValue = component.themeService.isThemeDark$.value
