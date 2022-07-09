@@ -182,11 +182,37 @@ table {
   width: 100%;
 }
 
-mat-header-cell, mat-cell {
+@include narrower-than($bp-medium) {
+  .mat-table {
+    overflow-x: scroll;
+  }
+
+}
+
+.min-width-1000 {
+  min-width: 1000px;
+}
+
+.mat-cell,
+.mat-header-cell {
+  word-wrap: normal;
+  padding: 0 10px;
+  line-break: unset;
+  min: 300px;
+  vertical-align: middle;
   justify-content: center;
 }
 
+.mat-row,
+.mat-header-row,
+.mat-paginator {
+  min-width: 1000px;
+}
 
-
-
+.img {
+  width: 4vw;
+  @include narrower-than($bp-large) {
+    width: 12vw;
+  }
+}
 
