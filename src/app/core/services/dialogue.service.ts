@@ -7,13 +7,13 @@ import {SearchWithToggleComponent} from "@components/*";
 })
 export class DialogueService {
   isOpen: boolean = false
-  public _dialogueRef!: MatDialogRef<SearchWithToggleComponent>;
+  public dialogueRef!: MatDialogRef<SearchWithToggleComponent>;
 
   constructor(public _dialog: MatDialog) {
   }
 
   open() {
-    this._dialogueRef = this._dialog.open(SearchWithToggleComponent, {
+    this.dialogueRef = this._dialog.open(SearchWithToggleComponent, {
       disableClose: true
     })
     this.isOpen = true
@@ -21,7 +21,7 @@ export class DialogueService {
 
   close() {
     if (this.isOpen) {
-      this._dialogueRef.close()
+      this.dialogueRef.close()
       this.isOpen = false
     }
   }

@@ -14,23 +14,23 @@ export class SearchWithToggleComponent implements OnInit {
   isDark: boolean = false;
 
 
-  constructor(public _dataService: DataService, public _themeService: ThemeService) {
+  constructor(public dataService: DataService, public themeService: ThemeService) {
 
   }
 
   ngOnInit(): void {
-    this._themeService.isThemeDark$.pipe(untilDestroyed(this)).subscribe(value => {
+    this.themeService.isThemeDark$.pipe(untilDestroyed(this)).subscribe(value => {
       this.isDark = value;
     })
 
   }
 
   toggleChanged($event: MatSlideToggleChange) {
-    this._dataService.isShowAvatarImage.next($event.checked)
+    this.dataService.isShowAvatarImage.next($event.checked)
   }
 
   changeTheme() {
-    this._themeService.isThemeDark$.next(!this._themeService.isThemeDark$.value)
+    this.themeService.isThemeDark$.next(!this.themeService.isThemeDark$.value)
   }
 
 }

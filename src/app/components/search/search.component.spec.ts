@@ -99,7 +99,7 @@ describe('SearchComponent', () => {
       expect(spy).toHaveBeenCalled()
     });
     it('should have a search() which calls _dialogueService.close() ', () => {
-      const spy = spyOn(component._dialogueService, 'close')
+      const spy = spyOn(component.dialogueService, 'close')
       component.search()
       expect(spy).toHaveBeenCalled();
     });

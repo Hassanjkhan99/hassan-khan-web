@@ -17,7 +17,7 @@ export class AppComponent {
   darkClassName = 'darkMode';
 
 
-  constructor(public dialogueService: DialogueService, private _overlay: OverlayContainer, public themeService: ThemeService) {
+  constructor(public dialogueService: DialogueService, public overlay: OverlayContainer, public themeService: ThemeService) {
   }
 
   private _isDark: boolean = false;
@@ -40,9 +40,9 @@ export class AppComponent {
     this.isDark = $event
     this.className = $event ? this.darkClassName : ''
     if (this.className === this.darkClassName) {
-      this._overlay.getContainerElement().classList.add(this.darkClassName);
+      this.overlay.getContainerElement().classList.add(this.darkClassName);
     } else {
-      this._overlay.getContainerElement().classList.remove(this.darkClassName);
+      this.overlay.getContainerElement().classList.remove(this.darkClassName);
     }
   }
 

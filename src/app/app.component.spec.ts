@@ -79,30 +79,29 @@ describe('AppComponent', () => {
       expect(component.darkClassName).toEqual("darkMode");
     });
 
-    it('_isDark start value should be false', () => {
+    it('isDark start value should be false', () => {
 
-      // @ts-expect-error
-      expect(component._isDark).toEqual(false);
+
+      expect(component.isDark).toEqual(false);
     });
 
-    it('getter isDark must return same value _isDark', () => {
+    it('getter isDark must return same value isDark', () => {
 
-      // @ts-expect-error
-      component._isDark = true;
+
+      component.isDark = true;
       fixture.detectChanges();
 
 
-      // @ts-expect-error
-      expect(component.isDark).toEqual(component._isDark);
+      expect(component.isDark).toEqual(component.isDark);
     });
 
-    it('setter isDark must set correct value in _isDark', () => {
+    it('setter isDark must set correct value in isDark', () => {
 
       component.isDark = true
       fixture.detectChanges();
 
-      // @ts-expect-error
-      expect(component._isDark).toEqual(component.isDark);
+
+      expect(component.isDark).toEqual(component.isDark);
     });
 
     it('should call ngOnInit on render', () => {
@@ -133,8 +132,8 @@ describe('AppComponent', () => {
 
       expect(component.isDark).toEqual(true);
       expect(component.className).toEqual(component.darkClassName);
-      // @ts-expect-error
-      expect(component._overlay.getContainerElement().classList).toContain(component.darkClassName)
+
+      expect(component.overlay.getContainerElement().classList).toContain(component.darkClassName)
     })
   })
 })

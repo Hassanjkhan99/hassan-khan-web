@@ -33,7 +33,7 @@ describe('DialogueService', () => {
   it('should be have close() which if isOpen is truthy sets it to false dialogueRef.close() else do nothing', () => {
     service.open();
 
-    const spy = spyOn(service._dialogueRef, 'close')
+    const spy = spyOn(service.dialogueRef, 'close')
     service.close();
     expect(spy).toHaveBeenCalled();
     expect(service.isOpen).toBeFalsy();

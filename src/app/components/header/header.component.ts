@@ -15,7 +15,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   @Input() isMainHeader: boolean = true;
   isNotHome: boolean = false;
 
-  constructor(public _dataService: DataService, public _themeService: ThemeService, public router: Router) {
+  constructor(public dataService: DataService, public _themeService: ThemeService, public router: Router) {
   }
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class HeaderComponent implements OnInit, AfterViewChecked {
   }
 
   toggleChanged($event: boolean) {
-    this._dataService.isShowAvatarImage.next($event)
+    this.dataService.isShowAvatarImage.next($event)
   }
 
   changeTheme() {

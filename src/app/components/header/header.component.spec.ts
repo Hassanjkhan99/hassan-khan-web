@@ -176,10 +176,10 @@ describe('HeaderComponent', () => {
 
     it('toggleChange() should set value in dataService.isShowAvatarImage', () => {
       component.toggleChanged(true)
-      expect(component._dataService.isShowAvatarImage.value).toBeTruthy()
+      expect(component.dataService.isShowAvatarImage.value).toBeTruthy()
 
       component.toggleChanged(false)
-      expect(component._dataService.isShowAvatarImage.value).toBeFalsy()
+      expect(component.dataService.isShowAvatarImage.value).toBeFalsy()
     });
 
     it('changeTheme() should set value in themeService.isThemeDark', () => {
