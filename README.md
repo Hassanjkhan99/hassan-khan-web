@@ -12,7 +12,7 @@ change any of the source files.
 
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/code%20coverage.png
 
-## look and feel on my development screen
+## Look and feel on my development screen
 
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen1.png
 
@@ -30,3 +30,6 @@ https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen7.
 
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen8.png
 
+## Served Application on heroku
+
+https://hassan-khan-web.herokuapp.com/
