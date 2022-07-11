@@ -15,10 +15,18 @@ https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/code%20c
 ## look and feel on my development screen
 
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen1.png
+
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen2.png
+
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen3.png
+
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen4.png
+
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen5.png
+
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen6.png
+
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen7.png
+
 https://github.com/Hassanjkhan99/hassan-khan-web/blob/master/src/assets/Screen8.png
+
